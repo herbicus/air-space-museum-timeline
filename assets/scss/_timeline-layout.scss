@@ -1,0 +1,366 @@
+// -------------------------------------
+//   Timeline Layout
+// -------------------------------------
+// ----- Specifics Stylings
+// -------------------------------------
+
+body {
+	background: black;
+	// min-height: 100vh;
+	background: url("../img/backgrounds/space-body-bg.png")repeat-x center center;
+	-webkit-background-size: contain; 
+	-o-background-size: contain; 
+	background-size: contain; 
+	overflow-x: scroll;
+	overflow-z: hidden;
+	min-width: 11540px;
+	min-width: 810em;
+	@include media(min-width 320px max-width 480px, 6) {
+		min-width: 100%;
+		max-width: 480px;
+		background: $cream; 
+	}
+
+	@include media(min-width 1280px, 6) {
+		min-width: 1300em;  
+	}
+
+	@include media(min-width 1824px, 6) {
+		min-width: 1580em;  
+	}
+}
+
+section {
+	width: 100vw;
+	height: 100vh;
+	float: left;
+}
+
+.desktop-layout {
+	display: block;
+	//min-width: 11500px;
+	@include media(min-width 320px max-width 768px, 6) {
+		display: none;
+	}
+}
+
+.mobile-layout {
+	display: none;
+	width: 100%;
+	@include media(min-width 320px max-width 768px, 6) {
+		display: block;
+	}
+	.mobile-nav-icon {
+		position: absolute;
+		left: 175%;
+		top: 10px;
+		z-index: 100; 
+		text-indent: -9999px;
+		width: 35px;
+		height: 35px;
+		background: url("../img/other/hamburger.png");
+		@include bg-cover;
+		@include fade-hover;
+		 
+	}
+	.mobile-nav {
+		position: fixed;
+	}
+	ul {
+		@include transition (all .3s ease-in-out);
+		position: relative;
+		left: -205%;
+		li {
+			width: 200%;
+			padding: 15px 1%;
+			background: $cream;
+			text-align: center;
+			color: $charcoal;
+			@include shadow-border($charcoal);
+			//border-bottom: 1px solid black;
+			 
+		}
+	}
+}
+
+.l-timeline-nav {
+	position: absolute;
+	.timeline-gauge { //ul
+		z-index: 20; 
+		position: fixed;
+		left: 15%;
+		bottom: 1em;
+		background: url("../img/other/timeline-nav.png");
+		@include bg-contain;
+		background-position: left, center; 
+		min-height: 54px;
+		@include media(min-width 1282px, 6) {
+			//left: 20%;
+			left: 0;
+			-webkit-transform: translate(31%, -50%);
+			-moz-transform: translate(31%, -50%);
+			-ms-transform: translate(31%, -50%);
+			-o-transform: translate(31%, -50%);
+			transform: translate(31%, -50%);
+		}
+		li {
+			width: 60px;
+			text-indent: -9999px;
+			//-webkit-box-shadow: 0px 0px 1px 1px $charcoal, 0px 0px 3px 3px rgba(179, 179, 179, .5);
+			//        box-shadow: 0px 0px 1px 1px $charcoal, 0px 0px 3px 3px rgba(179, 179, 179, .5);
+			display: inline-block;
+			padding: 2px 41px;
+			padding: 18px 42px 12px 48px;
+			opacity: 0;
+			background: url("../img/other/needle.png");
+			@include bg-contain;
+			@include transition (all .3s ease-in-out);
+			@include attention() {
+				cursor: pointer;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// Hover animation
+
+
+.element {
+	&:hover > li {
+		
+	}
+}
+
+li {
+	&:hover > ul & {
+		
+	}
+}
+
+#section-1 {
+	&:hover > .timeline-gauge & {
+		background: url("../img/other/hovers/1.png");
+		@include bg-contain;
+	}
+}
+
+.l-section-splash {
+	background: url("../img/bg/bg-splash.png");
+	@include bg-cover;
+	h1 {
+		float: right;
+		text-align: right;
+		text-shadow: 0 2px 2px #fff;
+		color: $cream;
+		color: #202F66; 
+	}
+	.body-copy {
+		text-shadow: 0 1px 1px #fff;
+		width: 75%;
+		font-size: 18px;
+		padding: 32.5% 2.5% 0 0;
+		color: #202F66;
+		@include media(min-width 1282px, 6) {
+			padding: 40% 2.5% 0 0;
+		}
+	}
+	span {
+		font-size: 2em;
+	}
+	img {
+		@include centerer;
+		-webkit-transform: translate(-50%, -95%);
+		-moz-transform: translate(-50%, -95%);
+		-ms-transform: translate(-50%, -95%);
+		-o-transform: translate(-50%, -95%);
+		transform: translate(-50%, -95%);
+	}
+}
+
+.l-section-wright {
+	background: url("../img/bg/bg-wright.png");
+		@include bg-cover;
+}
+
+.l-section-spirit {
+  background: url("../img/bg/bg-spirit.png");
+  	@include bg-cover;
+}
+
+.l-section-mustang {
+	background: url("../img/bg/bg-mustang.png");
+	@include bg-cover;
+}
+
+.l-section-space {
+	background: url("../img/bg/bg-sputnik.png");
+	@include bg-cover;
+	.body-copy {
+		color: #fff;
+	}
+}
+
+.l-section-space-2 {
+	background: url("../img/bg/bg-apollo.png");
+	@include bg-cover;
+	.body-copy {
+		color: #fff;
+	}
+}
+
+.l-section-space-3 {
+	background: url("../img/bg/bg-shuttle.png");
+	@include bg-cover;
+	.body-copy {
+		color: #fff;
+	}
+}
+
+.l-section-space-4 {
+	background: url("../img/bg/bg-station.png");
+	@include bg-cover;
+	.body-copy {
+		color: #fff;
+	}
+}
+
+.l-section-space-5 {
+	background: url("../img/bg/bg-rover.png");
+	@include bg-cover;
+	.body-copy {
+		color: #fff;
+	}
+}
+
+.l-section-last {
+	//background: url("../img/bg/bg-rover.png");
+	background: url("../img/other/tablet.png");
+	@include bg-contain;
+	background-position: bottom, left; 
+	background: transparent;
+	.body-copy {
+		color: #fff;
+	}
+	.l-tablet-container {
+		width: 625px;
+		width: 49%;
+		height: 500px;
+		background: url("../img/other/tablet-x.png");
+		@include bg-contain;
+		background-position: bottom, left; 
+		//border: 2px solid red;
+		position: relative;
+		bottom: 0;
+		top: 20%;
+		@include media(min-width 1282px, 6) {
+			top: 40%;  
+		}
+	}
+}
+
+// overlays
+.l-section-overlay {
+	background: url(../img/bg/bg-last-transform-norm.jpg);
+	@include bg-cover;
+	height: 100vh;
+	position: relative;
+	z-index: 1;
+	opacity: 0;
+	display: none;
+}
+
+.l-section-overlay-final {
+	background: url(../img/bg/bg-last-transform-blur.jpg);
+	@include bg-cover;
+	height: 100vh;
+	position: relative;
+	z-index: 2;
+	opacity: 0;
+	display: none;
+	.l-row {
+		padding-top: 25em !important;
+		
+		@include media(min-width 1282px, 6) {
+			padding-top: 40em !important;
+		}
+		
+		@include media(min-width 1824px, 6) {
+			padding-top: 250px !important;
+			padding-top: 45em !important;
+		}
+	}
+	.three-col {
+		height: 0;
+		visibility: hidden;
+	}
+
+	button {
+		width: 100%;
+		height: 100%;
+		font-size: 20px;
+		&:hover {
+			color: #fff;
+			background-color: #262b66 !important; 
+		}
+	}
+	a {
+		font-family: 'Rajdhani', sans-serif;
+		font-weight: 700;
+	}
+}
+
+.museum-logo {
+	opacity: 0;
+	top: 80px;
+	position: relative;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -100%);
+	-moz-transform: translate(-50%, -100%);
+	-ms-transform: translate(-50%, -100%);
+	-o-transform: translate(-50%, -100%);
+	transform: translate(-50%, -100%);
+	
+	// -webkit-transform: translate(50%, 20%);
+	// -moz-transform: translate(50%, 20%);
+	// -ms-transform: translate(50%, 20%);
+	// -o-transform: translate(50%, 20%);
+	// transform: translate(50%, 20%);
+	
+	// //@include media(min-width 1280px, 6) {
+	// // @include media(min-width 1824px, 6) {
+	// // 	-webkit-transform: translate(100%, 20%);
+	// // 	-moz-transform: translate(100%, 20%);
+	// // 	-ms-transform: translate(100%, 20%);
+	// // 	-o-transform: translate(100%, 20%);
+	// // 	transform: translate(100%, 20%);
+	// // }
+	
+	@include media(min-width 1824px, 6) {
+      -webkit-transform: translate(-50%, -150%);
+		-moz-transform: translate(-50%, -150%);
+		-ms-transform: translate(-50%, -150%);
+		-o-transform: translate(-50%, -150%);
+		transform: translate(-50%, -150%);  
+ 	}
+}
+
+// MOBILE
+.mobile-layout {
+	.mobile-callout {
+		//@include fade-callout(0.25, black, white);
+		 background: rgba(255, 255, 255, 0.5);
+		-webkit-box-shadow: 0px 0px 1px 1px $charcoal, 0px 0px 3px 3px rgba(179, 179, 179, .5);
+		        box-shadow: 0px 0px 1px 1px $charcoal, 0px 0px 3px 3px rgba(179, 179, 179, .5);
+		padding: 1% 2%;
+		h1, p {
+			color: #000;
+			//text-shadow: 0 2px 2px black; 
+		}
+	}
+	// .l-row {
+	// 	height: 100vh;
+	// }
+}

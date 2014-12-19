@@ -1,0 +1,23 @@
+// -------------------------------------
+//   Base
+// -------------------------------------
+// ----- Global defaults for Base-level tags (body, p, etc.)
+// -------------------------------------
+
+// ----- Uncomment if project will be using rems ----- //
+// html {
+//   font-size: 62.5%;
+// }
+
+p {
+  color: $charcoal;
+}
+
+// a {
+//   color: $carrot;
+//   text-decoration: none;
+//   @include transition (all .3s ease-in-out);
+//   &:hover {
+//     color: $pumpkin;
+//   }
+// }
