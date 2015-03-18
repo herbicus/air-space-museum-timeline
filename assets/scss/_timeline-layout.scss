@@ -170,6 +170,9 @@ li {
 	}
 	img {
 		@include centerer;
+		opacity: 0;
+		left: 40%;
+		top: 70%;
 		-webkit-transform: translate(-50%, -95%);
 		-moz-transform: translate(-50%, -95%);
 		-ms-transform: translate(-50%, -95%);

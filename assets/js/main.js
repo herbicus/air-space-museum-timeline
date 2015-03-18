@@ -6,41 +6,63 @@ var cornerstoneAPI = (function(options) {
 		options = options || {}
 	
 	// PRELOADER UTILITY
-	// var AceLoadImages = AceLoadImages || function(a, d, z) {
-	// 	a instanceof Array || (a = [a]);
-	// 	for (var e = a.length, f = 0, g = e; g--;) {
-	// 		var b = document.createElement("img");
-	// 		b.onload = function() {
-	// 			f++; 
-	// 			f >= e && isFunction(d) && d(z)
-	// 		};
-	// 		b.src = a[g]; 
-	// 	}
-	// }
+		var AceLoadImages = AceLoadImages || function(a, d, z) {
+			a instanceof Array || (a = [a]);
+			for (var e = a.length, f = 0, g = e; g--;) {
+				var b = document.createElement("img");
+				b.onload = function() {
+					f++; 
+					f >= e && isFunction(d) && d(z)
+				};
+				b.src = a[g]; 
+			}
+		}
 
-	// var isFunction = isFunction || function(functionToCheck) {
-	// 	var getType = {};
-	// 	return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
-	// }
+		var isFunction = isFunction || function(functionToCheck) {
+			var getType = {};
+			return functionToCheck && getType.toString.call(functionToCheck) == '[object Function]';
+		}
 
-	
-	// // // USE
-	// AceLoadImages([
-	// 	// yourArrayOfImages.jpg,
-	// 	// keepEmComming.jpg,
-	// 	// calls imagesAreLoaded() function at end
-	// ], imagesAreLoaded);
+		
 
-	// // // USE A PRELOADING IMAGE/TWEENMAX AFTER LOADS
-	// function imagesAreLoaded() {
-	// 	// do whatever it is that cant happen before the images are ready
-	// 	TweenMax.to("#spinner" , 0.75, {
-	//   		scale: 0,
-	//   		autoAlpha: 0,
-	//   		ease: Back.easeInOut
-	//   	});
-	// }
-	// END PRELOAD UTILITY
+
+		AceLoadImages([
+			'assets/img/planes/NASM Illustration_v4-09.png',
+			'assets/img/planes/NASM Illustration_v4-10.png',
+			'assets/img/planes/NASM Illustration_v4-11.png',
+			'assets/img/planes/NASM Illustration_v4-12.png',
+			'assets/img/planes/NASM Illustration_v4-13.png',
+			'assets/img/planes/NASM Illustration_v4-14.png',
+			'assets/img/planes/NASM Illustration_v4-15.png',
+			'assets/img/bg/bg-apollo.png',
+			'assets/img/bg/bg-last-transform-blur.jpg',
+			'assets/img/bg/bg-last-transform-norm.jpg',
+			'assets/img/bg/bg-mustang.png',
+			'assets/img/bg/bg-rover.png',
+			'assets/img/bg/bg-shuttle.png',
+			'assets/img/bg/bg-spirit.png',
+			'assets/img/bg/bg-splash.png',
+			'assets/img/bg/bg-sputnik.png',
+			'assets/img/bg/bg-station.png',
+			'assets/img/bg/bg-wright.png',
+		], imagesAreLoaded);
+
+		function imagesAreLoaded() {
+		  	TweenMax.to(".l-splash-overlay" , 0.75, {
+		  		autoAlpha: 0,
+		  		display: "none",
+		  		ease: Back.easeInOut,
+  		  		onComplete: function() {
+  		  			TweenMax.to(".l-section-splash img" , 0.5, {
+  				  		autoAlpha: 1,
+  				  		left: "50%",
+  				  		top: "50%",
+  				  		ease: Back.easeInOut
+  				  	});
+  		  		}
+		  	});
+		}
+		// END PRELOAD UTILITY
 
 	// INIT FUNCTION
 	var init = function() {
